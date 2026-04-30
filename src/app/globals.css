@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222 47% 5%;
+  --foreground: 210 40% 98%;
+  --card: 222 40% 8%;
+  --card-foreground: 210 40% 98%;
+  --primary: 199 89% 48%;
+  --primary-foreground: 222 47% 5%;
+  --muted: 217 32% 14%;
+  --muted-foreground: 215 20% 75%;
+  --border: 217 28% 18%;
+  --page-bg: 222 47% 5%;
+  --page-fg: 210 40% 98%;
+  --glass-bg: 222 40% 8%;
+  --glass-border: 217 28% 18%;
+}
+
+body[data-theme='light'] {
+  --page-bg: 220 33% 96%;
+  --page-fg: 223 47% 10%;
+  --glass-bg: 0 0% 100%;
+  --glass-border: 215 20% 84%;
+  --background: 220 33% 96%;
+  --foreground: 223 47% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 223 47% 10%;
+  --muted: 214 32% 92%;
+  --muted-foreground: 223 16% 38%;
+  --border: 214 28% 84%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(14, 165, 233, 0.16), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.1), transparent 22%),
+    linear-gradient(180deg, hsl(var(--page-bg)) 0%, hsl(var(--page-bg)) 55%, hsl(var(--page-bg)) 100%);
+  color: hsl(var(--page-fg));
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+body[data-theme='light'] {
+  background:
+    radial-gradient(circle at top, rgba(125, 211, 252, 0.28), transparent 35%),
+    radial-gradient(circle at 78% 12%, rgba(56, 189, 248, 0.12), transparent 22%),
+    linear-gradient(180deg, hsl(var(--page-bg)) 0%, hsl(var(--page-bg)) 55%, hsl(214 32% 94%) 100%);
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: white;
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--glass-bg) / 0.72);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border) / 0.55);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .noise {
+    position: relative;
+  }
+
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 1px, transparent 0);
+    background-size: 24px 24px;
+    opacity: 0.3;
+    pointer-events: none;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 95%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(90deg, #e2f7ff 0%, #7dd3fc 35%, #38bdf8 65%, #dbeafe 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .nav-glass {
+    background: hsl(var(--glass-bg) / 0.62);
+    backdrop-filter: blur(24px) saturate(130%);
+    border: 1px solid hsl(var(--glass-border) / 0.65);
+    box-shadow: 0 20px 60px rgba(2, 8, 23, 0.32);
+  }
+}
+
+body[data-theme='light'] .glass {
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+body[data-theme='light'] .nav-glass {
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.12);
+}
+
+body[data-theme='light'] .text-white {
+  color: hsl(var(--page-fg)) !important;
+}
+
+body[data-theme='light'] .text-slate-100 {
+  color: hsl(223 47% 12%) !important;
+}
+
+body[data-theme='light'] .text-slate-200 {
+  color: hsl(223 28% 20%) !important;
+}
+
+body[data-theme='light'] .text-slate-300 {
+  color: hsl(223 20% 32%) !important;
+}
+
+body[data-theme='light'] .text-slate-400 {
+  color: hsl(223 14% 44%) !important;
+}
+
+body[data-theme='light'] .text-sky-100 {
+  color: hsl(206 78% 24%) !important;
+}
+
+body[data-theme='light'] .text-sky-200 {
+  color: hsl(206 72% 28%) !important;
+}
+
+body[data-theme='light'] .text-sky-300 {
+  color: hsl(205 80% 32%) !important;
+}
+
+body[data-theme='light'] .text-sky-100\/70,
+body[data-theme='light'] .text-sky-200\/70 {
+  color: hsl(205 56% 34% / 0.78) !important;
+}
+
+body[data-theme='light'] .theme-accent {
+  color: hsl(205 82% 32%) !important;
+}
+
+body[data-theme='light'] .theme-secondary {
+  color: hsl(223 22% 34%) !important;
+}
+
+body[data-theme='light'] .theme-muted {
+  color: hsl(223 14% 44%) !important;
+}
+
+body[data-theme='light'] .theme-contrast {
+  color: hsl(223 47% 10%) !important;
+}
+
+body[data-theme='light'] .theme-clock {
+  background: hsla(0, 0%, 100%, 0.82) !important;
+  color: hsl(223 47% 14%) !important;
+  border-color: hsl(215 25% 78% / 0.9) !important;
+}
+
+body[data-theme='light'] .noise::before {
+  opacity: 0.16;
+}
