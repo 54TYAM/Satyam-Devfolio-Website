@@ -19,3 +19,7 @@ npm run build
 
 - Replace the resume placeholder with your PDF in `public/` when ready.
 - Expand the AI assistant and terminal sections later if you want live interactivity.
+
+## Deployment
+
+This project is configured for GitHub Pages and deploys automatically from the `main` branch.
