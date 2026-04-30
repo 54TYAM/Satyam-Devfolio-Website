@@ -22,4 +22,4 @@ npm run build
 
 ## Deployment
 
-This project is configured for GitHub Pages and deploys automatically from the `main` branch.
+This project is configured for GitHub Pages and publishes from the `gh-pages` branch.
