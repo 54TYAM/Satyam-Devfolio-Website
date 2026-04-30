@@ -1,8 +1,10 @@
 import type { NextConfig } from 'next';
 
+const isVercel = process.env.VERCEL === '1';
+
 const nextConfig: NextConfig = {
-  output: 'export',
-  basePath: '/Satyam-Devfolio-Website',
+  output: isVercel ? undefined : 'export',
+  basePath: isVercel ? undefined : '/Satyam-Devfolio-Website',
   reactStrictMode: true,
 };
 
